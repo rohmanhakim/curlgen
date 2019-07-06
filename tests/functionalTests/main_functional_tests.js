@@ -5,9 +5,8 @@ module.exports = {
       const helper = new BaseHelper(browser)
       helper.openApp()
       helper.clickGenerateButton()
-        .pause(500)
-        .assert.containsText('code[id=syntaxOutput]', 'curl')
-        .end();
+      helper.assertOutput('curl')
+      .end();
     },
 
     'Given valid url input, click generate button should display input url' : function (browser) {
@@ -15,8 +14,7 @@ module.exports = {
       helper.openApp()
       helper.inputUrl('localhost:8080/get')
       helper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText('code[id=syntaxOutput]', 'curl localhost:8080/get')
-          .end();
-      }
+      helper.assertOutput('curl localhost:8080/get')
+      .end();
+    }
 };

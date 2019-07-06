@@ -12,11 +12,8 @@ module.exports = {
       headerHelper.clickAddHeader()
       headerHelper.inputHeader(1,'secondKey','secondValue')
       baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -H 'firstKey: firstValue' -H 'secondKey: secondValue' localhost:8080/get`)
-          .end();
+      baseHelper.assertOutput(`curl -H 'firstKey: firstValue' -H 'secondKey: secondValue' localhost:8080/get`)
+      .end();
     },
 
     'Given valid header, remove some of them, click generate should show output syntax correctly' : function (browser) {
@@ -36,10 +33,7 @@ module.exports = {
       headerHelper.clickRemoveHeader(1)
       headerHelper.clickRemoveHeader(2)
       baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -H 'firstKey: firstValue' -H 'fourthKey: fourthValue' localhost:8080/get`)
-          .end();
+      baseHelper.assertOutput(`curl -H 'firstKey: firstValue' -H 'fourthKey: fourthValue' localhost:8080/get`)
+      .end();
     },
 };

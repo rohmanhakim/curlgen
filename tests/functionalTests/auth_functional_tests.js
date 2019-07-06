@@ -11,11 +11,8 @@ module.exports = {
         authHelper.openAuthTab()
         authHelper.selectAuthType('no-auth')
         baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl localhost:8080/get`)
-          .end();
+        baseHelper.assertOutput(`curl localhost:8080/get`)
+        .end();
     },
 
     'Given valid basic auth, click generate should show output syntax correctly' : function (browser) {
@@ -29,11 +26,8 @@ module.exports = {
         authHelper.inputAuthUsername('myusername')
         authHelper.inputAuthPassword('mypassword')
         baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -u myusername:mypassword --basic localhost:8080/get`)
-          .end();
+        baseHelper.assertOutput(`curl -u myusername:mypassword --basic localhost:8080/get`)
+        .end();
     },
 
     'Given valid digest auth, click generate should show output syntax correctly' : function (browser) {
@@ -47,11 +41,8 @@ module.exports = {
         authHelper.inputAuthUsername('myusername')
         authHelper.inputAuthPassword('mypassword')
         baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -u myusername:mypassword --digest localhost:8080/get`)
-          .end();
+        baseHelper.assertOutput(`curl -u myusername:mypassword --digest localhost:8080/get`)
+        .end();
     },
 
     'Given valid NTLM auth, click generate should show output syntax correctly' : function (browser) {
@@ -65,11 +56,8 @@ module.exports = {
         authHelper.inputAuthUsername('myusername')
         authHelper.inputAuthPassword('mypassword')
         baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -u myusername:mypassword --ntlm localhost:8080/get`)
-          .end();
+        baseHelper.assertOutput(`curl -u myusername:mypassword --ntlm localhost:8080/get`)
+        .end();
     },
 
     'Given valid bearer auth, click generate should show output syntax correctly' : function (browser) {
@@ -82,10 +70,7 @@ module.exports = {
         authHelper.selectAuthType('bearer')
         authHelper.inputAuthToken('abc-def-ghi-jkl-mno')
         baseHelper.clickGenerateButton()
-          .pause(500)
-          .assert.containsText(
-            'code[id=syntaxOutput]', 
-            `curl -H 'Authorization: Bearer abc-def-ghi-jkl-mno' localhost:8080/get`)
-          .end();
+        baseHelper.assertOutput(`curl -H 'Authorization: Bearer abc-def-ghi-jkl-mno' localhost:8080/get`)
+        .end();
     }
 };

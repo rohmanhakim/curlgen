@@ -2,6 +2,8 @@ import { Controller } from "stimulus"
 import HeaderHandler from "../handler/header_handler"
 import AuthHandler from "../handler/auth_handler"
 import Parser from "../parser/parser"
+import * as CodeMirror from "codemirror"
+import "codemirror/mode/shell/shell"
 
 export default class extends Controller {
   static targets = [
@@ -17,6 +19,7 @@ export default class extends Controller {
 
   headerHandler
   authHandler
+  outputCodeEditor
 
   parser
 
@@ -27,6 +30,14 @@ export default class extends Controller {
     this.headerHandler = new HeaderHandler(this.tabHeaderTarget)
     this.authHandler = new AuthHandler(this.tabAuthTarget, this.inputAuthTypeTarget)
     this.parser = new Parser()
+
+    this.outputCodeEditor = CodeMirror.fromTextArea(this.outputCode, {
+      lineNumbers: false,
+      mode: "shell",
+      theme: "night",
+      readOnly: false,
+      lineWrapping: true
+    })
   }
 
   generate() {
@@ -37,7 +48,8 @@ export default class extends Controller {
 
     const output = this.parser.parse(url, headers, auth)
 
-    this.outputCode.innerText = output
+    this.outputCode.value = output
+    this.outputCodeEditor.setValue(this.outputCode.value)
   }
 
   addHeader() {
