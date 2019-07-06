@@ -1,0 +1,36 @@
+body {
+    background-color: #eee;
+}
+h1 {
+    font-family: 'Crete Round', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+input, label {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.body-wrapper {
+    max-width: 960px;
+    background-color: #fff;
+    margin: auto;
+    padding: 32px;
+}
+
+.syntax-output-wrapper {
+    margin-top: 1.5rem;
+}
+.syntax-output {
+    margin-bottom: 0;
+}
+
+.syntax-output-body {
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+.prettyprint {
+    background: #fff;
+    font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+    font-size: 1.2rem;
+    -webkit-font-smoothing: antialiased;
+}

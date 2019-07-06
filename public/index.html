@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Curl Script Generator</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/skeleton-tabs.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS 
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/skeleton-tabs.js"></script>
+  <script type="text/javascript" src="js/bundle.js" async></script>
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="twelve column">
+        <div class="body-wrapper" data-controller="main">
+          <h4>Curl Script Generator</h4>
+          <p>Simple curl script generator to save your time</p>
+          <div class="form-area">
+            <div class="row">
+                <div class="three columns">
+                    <label for="inputMethod">Method</label>
+                    <select class="u-full-width"  id="inputMethod" type="text">
+                      <option value="GET">GET</option>
+                      <option value="POST">POST</option>
+                    </select>
+                </div>
+                <div class="nine columns">
+                    <label for="inputUrl">Url</label>
+                    <input id="inputUrl" data-target="main.inputUrl" class="u-full-width" type="text" >
+                </div>
+            </div>
+            <ul class="tab-nav">
+              <li>
+                <a class="button active" href="#tab-header">Header</a>
+              </li>
+              <li>
+                <a class="button" href="#tab-auth">Auth</a>
+              </li>
+              <li>
+                <a class="button" href="#tab-body">Body</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab-header">
+                <div class="row">
+                  <div class="five columns">
+                    <input type="text">
+                  </div>
+                  <div class="five columns">
+                    <input type="text">
+                  </div>
+                  <div class="two columns">
+                    <button>Remove</button>
+                  </div>
+                </div>  
+              </div>
+              <div class="tab-pane" id="tab-auth">
+                <h5>Tab 2</h5>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+              </div>
+              <div class="tab-pane" id="tab-body">
+                <h5>Tab 3</h5>
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+              </div>
+            </div>
+            <button class="button-primary" data-action="click->main#generate">Generate</button>
+          </div>
+          
+          <!-- Result Area 
+          –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
+          <div class="syntax-output-wrapper">
+            <h6>Generated Output</h6>
+            <pre class="syntax-output">
+              <code data-target="main.output" class="syntax-output-body prettyprint"></code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
