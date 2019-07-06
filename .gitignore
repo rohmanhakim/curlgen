@@ -1,4 +1,10 @@
 node_modules
 public/js/bundle.js
 public/js/bundle.js.map
+tests_output
 .vscode
+chromedriver.log
+geckodriver.log
+public/js/*.hot-update.js
+public/js/*.hot-update.js.map
+public/js/*.hot-update.json

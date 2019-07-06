@@ -5,8 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack"
+    "start": "webpack-dev-server --open --mode development --port 8087",
+    "build": "webpack",
+    "functionalTest": "sh ./script/run_functional_test.sh"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
@@ -18,6 +19,8 @@
     "webpack-dev-middleware": "^3.7.0"
   },
   "devDependencies": {
+    "chromedriver": "^75.0.1",
+    "nightwatch": "^1.1.13",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
   }

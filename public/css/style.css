@@ -9,15 +9,29 @@ input, label {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.body-wrapper {
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.main-wrapper {
     max-width: 960px;
+}
+
+.body-wrapper {
     background-color: #fff;
     margin: auto;
     padding: 32px;
 }
 
 .syntax-output-wrapper {
+    margin: auto;
+    padding: 32px;
     margin-top: 1.5rem;
+    background-color: #fff;
 }
 .syntax-output {
     margin-bottom: 0;

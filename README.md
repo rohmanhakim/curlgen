@@ -15,6 +15,12 @@ Then, open your browser to http://localhost:8080
 ```sh
 $ yarn run build
 ```
+
+####Run Functional Tests
+
+```sh
+$ yarn run functionalTest
+```
 ------------
 
 Copyright © 2019 Muhammad Arif Rohman Hakim.

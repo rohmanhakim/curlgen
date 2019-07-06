@@ -38,69 +38,69 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
+  <div class="container" data-controller="main">
     <div class="row">
       <div class="twelve column">
-        <div class="body-wrapper" data-controller="main">
-          <h4>Curl Script Generator</h4>
-          <p>Simple curl script generator to save your time</p>
-          <div class="form-area">
-            <div class="row">
-                <div class="three columns">
-                    <label for="inputMethod">Method</label>
-                    <select class="u-full-width"  id="inputMethod" type="text">
-                      <option value="GET">GET</option>
-                      <option value="POST">POST</option>
-                    </select>
+        <div class="main-wrapper">
+          <!-- Input Layout 
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+          <div class="body-wrapper" >
+            <h4>Curl Script Generator</h4>
+            <p>Simple curl script generator to save your time</p>
+            <div class="form-area">
+              <div class="row">
+                  <div class="three columns">
+                      <label for="inputMethod">Method</label>
+                      <select class="u-full-width"  id="inputMethod" type="text">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                      </select>
+                  </div>
+                  <div class="nine columns">
+                      <label for="inputUrl">Url</label>
+                      <input id="inputUrl" data-target="main.inputUrl" class="u-full-width" type="text" >
+                  </div>
+              </div>
+              <ul class="tab-nav">
+                <li>
+                  <a id="tabHeader" class="button active" href="#tab-header">Header</a>
+                </li>
+                <li>
+                  <a id="tabAuth" class="button" href="#tab-auth">Auth</a>
+                </li>
+                <li>
+                  <a id="tabBody" class="button" href="#tab-body">Body</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab-header" >
+                  <div data-target="main.tabHeader"></div>
+                  <button id="buttonAddHeader" data-action="click->main#addHeader">Add Header</button>
                 </div>
-                <div class="nine columns">
-                    <label for="inputUrl">Url</label>
-                    <input id="inputUrl" data-target="main.inputUrl" class="u-full-width" type="text" >
+                <div class="tab-pane" id="tab-auth">
+                  <h5>Tab 2</h5>
+                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                 </div>
-            </div>
-            <ul class="tab-nav">
-              <li>
-                <a class="button active" href="#tab-header">Header</a>
-              </li>
-              <li>
-                <a class="button" href="#tab-auth">Auth</a>
-              </li>
-              <li>
-                <a class="button" href="#tab-body">Body</a>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab-header">
-                <div class="row">
-                  <div class="five columns">
-                    <input type="text">
-                  </div>
-                  <div class="five columns">
-                    <input type="text">
-                  </div>
-                  <div class="two columns">
-                    <button>Remove</button>
-                  </div>
-                </div>  
+                <div class="tab-pane" id="tab-body">
+                  <h5>Tab 3</h5>
+                  <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                </div>
               </div>
-              <div class="tab-pane" id="tab-auth">
-                <h5>Tab 2</h5>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-              </div>
-              <div class="tab-pane" id="tab-body">
-                <h5>Tab 3</h5>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="twelve columns">
+                  <button id="buttonGenerate" class="button-primary u-full-width" data-action="click->main#generate">Generate</button>
+                </div>
               </div>
             </div>
-            <button class="button-primary" data-action="click->main#generate">Generate</button>
           </div>
-          
-          <!-- Result Area 
-          –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
+          <!-- Output Layout 
+            –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
           <div class="syntax-output-wrapper">
             <h6>Generated Output</h6>
             <pre class="syntax-output">
-              <code data-target="main.output" class="syntax-output-body prettyprint"></code>
+              <code id="syntaxOutput" data-target="main.output" class="syntax-output-body prettyprint"></code>
             </pre>
           </div>
         </div>
