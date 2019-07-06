@@ -4,7 +4,7 @@ export default class Parser {
         const headersString = this.parseHeader(headers)
         const authString = this.parseAuth(auth)
         const output = curlPrefix + headersString + authString + url
-        return output
+        return output.trim()
     }
 
     parseAuth(auth) {
