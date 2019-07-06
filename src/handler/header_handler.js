@@ -30,18 +30,17 @@ export default class HeaderHandler {
     
     getHeaders() {
         const headerElements = Array.from(this.tabHeader.children)
+        
         return headerElements
-        .filter(header => (
-            header.children[0].firstElementChild.value !== "" 
-            || header.children[1].firstElementChild.value !== "" 
-        ))
-        .map(header => 
-            ({ 
-            key: `${header.children[0].firstElementChild.value}`, 
-            value: `${header.children[1].firstElementChild.value}` 
-            })  
-        ).map(header => (
-            `-H '${header.key}: ${header.value}' `
-        )).join("")
+            .filter(header => (
+                header.children[0].firstElementChild.value !== "" 
+                || header.children[1].firstElementChild.value !== "" 
+            ))
+            .map(header => 
+                ({ 
+                key: `${header.children[0].firstElementChild.value}`, 
+                value: `${header.children[1].firstElementChild.value}` 
+                })  
+            )
     }
 }

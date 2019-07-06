@@ -1,6 +1,7 @@
 import { Controller } from "stimulus"
 import HeaderHandler from "../handler/header_handler"
 import AuthHandler from "../handler/auth_handler"
+import Parser from "../parser/parser"
 
 export default class extends Controller {
   static targets = [
@@ -17,46 +18,24 @@ export default class extends Controller {
   headerHandler
   authHandler
 
+  parser
+
   initialize() {
     this.inputUrl = this.inputUrlTarget
     this.outputCode = this.outputTarget
 
     this.headerHandler = new HeaderHandler(this.tabHeaderTarget)
     this.authHandler = new AuthHandler(this.tabAuthTarget, this.inputAuthTypeTarget)
-  }
-
-  parse(auth) {
-    var authString = ''
-    switch(auth.type) {
-      case 'no-auth':
-        break;
-      case 'basic':
-        authString = `-u ${auth.username}:${auth.password} --basic `
-        break;
-      case 'digest':
-        authString = `-u ${auth.username}:${auth.password} --digest `
-        break;
-      case 'ntlm':
-        authString = `-u ${auth.username}:${auth.password} --ntlm `
-        break;
-      case 'bearer':
-        authString = `-H 'Authorization: Bearer ${auth.token}' `
-        break;
-      default:
-        authString = ''
-        break;
-    }
-    return authString
+    this.parser = new Parser()
   }
 
   generate() {
-    const curlPrefix = "curl "
     const url = this.inputUrl.value
 
     const headers = this.headerHandler.getHeaders()
-    const auth = this.parse(this.authHandler.getAuth())
+    const auth = this.authHandler.getAuth()
 
-    const output = curlPrefix + headers + auth + url
+    const output = this.parser.parse(url, headers, auth)
 
     this.outputCode.innerText = output
   }
