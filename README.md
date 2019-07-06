@@ -8,7 +8,7 @@ Generate curl script to save your time.
 ```sh
 $ yarn start
 ```
-Then, open your browser to http://localhost:8080
+Then, open your browser to http://localhost:8087
 
 #### Build for Production
 
