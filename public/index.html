@@ -78,8 +78,21 @@
                   <button id="buttonAddHeader" data-action="click->main#addHeader">Add Header</button>
                 </div>
                 <div class="tab-pane" id="tab-auth">
-                  <h5>Tab 2</h5>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                  <div data-target="main.tabAuth">
+                    <div class="row">
+                      <div class="four columns">
+                          <label for="inputAuthType">Type</label> 
+                          <select id="inputAuthType" class="u-full-width" data-action="change->main#addAuth" data-target="main.inputAuthType" id="inputAuthType" type="text">
+                              <option value="no-auth">No Authentication</option>
+                              <option value="basic">Basic</option>
+                              <option value="digest">Digest</option>
+                              <option value="ntlm">Microsoft NTLM</option>
+                              <option value="bearer">Bearer Token</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div></div>
+                  </div>
                 </div>
                 <div class="tab-pane" id="tab-body">
                   <h5>Tab 3</h5>
