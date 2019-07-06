@@ -1,5 +1,7 @@
 # curlgen
 
+[![Build Status](https://travis-ci.org/rohmanhakim/curlgen.svg?branch=master)](https://travis-ci.org/rohmanhakim/curlgen)
+
 Generate curl script to save your time.
 
 ### Usage
